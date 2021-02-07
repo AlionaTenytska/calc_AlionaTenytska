@@ -1,31 +1,73 @@
+body{
+    margin: 0;
+}
 .main {
-    background-color: white;
+    text-align: center;
+    font-size: 20px;
     padding: 3px;
     height: 250px;
     width: 350px;
-    text-align: center;
-    font-size: 20px;
-    border: solid;
-    
+    border: solid;  
 }
 
 button {
     width: 79px;
-    height: 35px;
+    height: 33px;
     border: rgb(243, 231, 231);
-    background-color: rgba(135, 140, 172, 0.144);
+    background-color: rgba(132, 118, 182, 0.548);
     color: black;
-    font-size: 20px;
-    border-radius: 10px;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
     margin: 2px;
 }
 
 #input_text{
     padding: 1px;
+    margin: 5px;
     width: 335px;
     height: 50px;
     border-radius: 10px;
+    border-color:  rgba(135, 140, 172, 0.144);
+    font-size: 30px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    text-align: right;
 }
-#more, #remin_after_dev, #clear, #clear_last_sumb, #divis, #multip, #subtract, #addition{
-    background-color: rgba(66, 65, 65, 0.185);
+#more, #remin_after_dev, #clear, #clear_last_sumb, #divis, #multip, #subtract, #addition {
+    background-color: rgba(7, 45, 148, 0.486);
+}
+
+.history{
+    padding: 3px;
+    position: absolute;
+    left:356px;
+    top:0;
+    height: 250px;
+    width: 350px;
+    border: solid;
+    text-align: center;
+    font-size: 20px;
+}
+
+#out_text{
+    height: 110px;
+    width: 320px;
+    border-color: black;
+    border-style: solid;
+}
+h3{
+    margin: 8px;
+    font-family: Arial, sans-serif;
+}
+p{
+    margin: 5px;
+    text-indent: 100px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+#reset{
+    margin-top: 20px;
+    background-color:rgba(14, 14, 230, 0.603);
 }

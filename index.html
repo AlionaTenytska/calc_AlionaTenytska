@@ -7,7 +7,7 @@
 
 </head>
 <body>
-        <div class="main">
+        <div id="main">
             <input type="text" id="input_text" value="0">
             <div class="first_row">
                 <button id="more">More</button>
@@ -37,9 +37,15 @@
                 <button id="numb_0" onclick="onButtonClick(this.id)">0</button>
                 <button id="sumb_dot">.</button>
                 <button id="equal_sumb" style="background-color:rgba(14, 14, 230, 0.603)">=</button>
-                <button id="addition">+</button>
+                <button id="addition" onclick="onButtonClick(this.id)">+</button>
             </div>
-        </div>
+            <div class="six_row">
+                <button id="tan">tan</button>
+                <button id="sin">sin</button>
+                <button id="cos">cos</button>
+                <button id="square_root">&radic;</button>
+            </div>
+        </div> 
         <div class="history">
             <h3>History</h3>
             <textarea id="out_text"></textarea>

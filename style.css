@@ -1,7 +1,7 @@
 body{
     margin: 0;
 }
-.main {
+#main {
     text-align: center;
     font-size: 20px;
     padding: 3px;
@@ -21,6 +21,7 @@ button {
     font-weight: bold;
     border-radius: 5px;
     margin: 2px;
+    cursor: pointer;
 }
 
 #input_text{
@@ -70,4 +71,8 @@ p{
 #reset{
     margin-top: 20px;
     background-color:rgba(14, 14, 230, 0.603);
+}
+
+.six_row{
+    display: none;
 }

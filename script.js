@@ -1,12 +1,13 @@
 var inp_text = document.getElementById('input_text');
 var history_text = document.getElementById('out_text');
+var out_result = document.getElementById('output_result');
 var arr = new Array();
 var arr_for_result = new Array();
 
 function onButtonClick(e){
     var elem_by_id = document.getElementById(e).innerHTML;
    
-    if(elem_by_id == '1' || elem_by_id == '2' || elem_by_id == '3' || elem_by_id == '4' || elem_by_id == '5' || elem_by_id == '6' || elem_by_id == '7' || elem_by_id == '8' || elem_by_id == '9'){
+    if(elem_by_id == '0' || elem_by_id == '1' || elem_by_id == '2' || elem_by_id == '3' || elem_by_id == '4' || elem_by_id == '5' || elem_by_id == '6' || elem_by_id == '7' || elem_by_id == '8' || elem_by_id == '9'){
         if(inp_text.value == '0'){     
             inp_text.value = elem_by_id;
             arr.push(elem_by_id);
@@ -17,7 +18,7 @@ function onButtonClick(e){
         }
     }
     
-    else if(elem_by_id == '+' || elem_by_id == '-' || elem_by_id == 'x' || elem_by_id.value == '/'){
+    else if(elem_by_id == '+' || elem_by_id == '-' || elem_by_id == 'x' || elem_by_id == '&#247'){
         if(inp_text.value == '0'){
             if(elem_by_id == '+' || elem_by_id == '-' || elem_by_id == 'x' || elem_by_id == '&#247'){
                 arr_for_result.pop();
@@ -34,7 +35,23 @@ function onButtonClick(e){
 
             inp_text.value='0';
         }    
-    }   
+    }
+    else if(elem_by_id == '='){
+        if(inp_text.value != '0'){
+            arr_for_result.push(arr.join(''));
+            history_text.innerHTML = arr_for_result.join('');
+            inp_text.value='0';
+            var result = eval(history_text.innerHTML);
+        }
+        else if(isNaN(arr_for_result[arr_for_result.length-1])){
+            arr_for_result.pop();
+            var a = arr_for_result.join('');
+            alert(a);
+            var result = eval(a);
+            out_result.innerHTML = result;
+        }
+        out_result.innerHTML = result;
+    }
 }
 
 

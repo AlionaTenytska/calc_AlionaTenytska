@@ -19,19 +19,19 @@
                 <button id="numb_7" onclick="onButtonClick(this.id)">7</button>
                 <button id="numb_8" onclick="onButtonClick(this.id)">8</button>
                 <button id="numb_9" onclick="onButtonClick(this.id)">9</button>
-                <button id="divis" >&#247</button>
+                <button id="divis" onclick="onButtonClick(this.id)" value="/">&#247</button>
             </div>
             <div class="third_row">
                 <button id="numb_4" onclick="onButtonClick(this.id)">4</button>
                 <button id="numb_5" onclick="onButtonClick(this.id)">5</button>
                 <button id="numb_6" onclick="onButtonClick(this.id)">6</button>
-                <button id="multip">x</button>
+                <button id="multip" onclick="onButtonClick(this.id)">x</button>
             </div>
             <div class="forth_row">
                 <button id="numb_1" onclick="onButtonClick(this.id)">1</button>
                 <button id="numb_2" onclick="onButtonClick(this.id)">2</button>
                 <button id="numb_3" onclick="onButtonClick(this.id)">3</button>
-                <button id="subtract">-</button>
+                <button id="subtract" onclick="onButtonClick(this.id)">-</button>
             </div>
             <div class="fifth_row">
                 <button id="numb_0" onclick="onButtonClick(this.id)">0</button>
@@ -48,7 +48,7 @@
         </div> 
         <div class="history">
             <h3>History</h3>
-            <textarea id="out_text"></textarea>
+            <textarea id="out_text" value=''></textarea>
             <p>Result: <p id="output_result"></p></p>
             <button id="reset">Reset</button>
         </div>

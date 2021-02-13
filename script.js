@@ -18,9 +18,9 @@ function onButtonClick(e){
         }
     }
     
-    else if(elem_by_id == '+' || elem_by_id == '-' || elem_by_id == 'x' || elem_by_id == '/'){
+    else if(elem_by_id == '+' || elem_by_id == '-' || elem_by_id == '*' || elem_by_id == '/'){
         if(inp_text.value == '0'){
-            if(elem_by_id == '+' || elem_by_id == '-' || elem_by_id == 'x' || elem_by_id == '/'){
+            if(elem_by_id == '+' || elem_by_id == '-' || elem_by_id == '*' || elem_by_id == '/'){
                 arr_for_result.pop();
                 var k = arr.join('') + elem_by_id;
                 arr_for_result.push(k);
@@ -36,6 +36,7 @@ function onButtonClick(e){
             inp_text.value='0';
         }    
     }
+
     else if(elem_by_id == '='){
         if(inp_text.value != '0'){
             arr_for_result.push(arr.join(''));
@@ -57,11 +58,38 @@ function onButtonClick(e){
         if(inp_text.value != '0'){
             inp_text.value = inp_text.value.slice(0, - 1 );
             arr.pop();
-            alert(arr.join());
         }
     }
 
-    
+    else if(elem_by_id == 'tan' || elem_by_id == 'sin' || elem_by_id == 'cos'){
+        var number = parseFloat(arr.join(''));
+        var result;
+        if(elem_by_id == 'tan'){
+            result= Math.tan(number * Math.PI/180);
+        }
+        else if(elem_by_id == 'sin'){
+            result= Math.sin(number * Math.PI/180);
+        }
+        else if(elem_by_id == 'cos'){
+            result= Math.cos(number * Math.PI/180);
+        }
+        result = parseFloat(result.toFixed(4));
+        history_text.innerHTML = elem_by_id + "(" + number + ")";
+        out_result.innerHTML = result;
+        inp_text.value='0';
+        arr.length=0;
+    }
+
+    else if(elem_by_id == 'sqrt'){
+        var number = parseFloat(arr.join(''));
+        var result = Math.sqrt(number);
+        result = parseFloat(result.toFixed(4));
+        history_text.innerHTML = history_text.style.content = '&radic;' + number ;
+        out_result.innerHTML = result;
+        inp_text.value='0';
+        arr.length=0;
+    }
+
 }
 
 
@@ -75,7 +103,7 @@ document.getElementById("more").onclick = function() {
         }
         else{
             six_r[i].style.display = 'none';
-            main_cl.style.height= '250px';
+            main_cl.style.height = '250px';
         }
     }
 }

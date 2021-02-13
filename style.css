@@ -52,23 +52,47 @@ button {
     font-size: 20px;
 }
 
-#out_text{
+#for_out_text{
+    position: absolute;
+    overflow: scroll;
+    left: 15px;
     height: 110px;
     width: 320px;
     border-color: black;
     border-style: solid;
+    text-align: left;
+    padding: 0px;
+}
+
+#out_text{
+    margin: 3px;
+}
+
+#for_result{
+    position: absolute;
+    left:90px;
+    top: 165px;
 }
 h3{
     margin: 8px;
     font-family: Arial, sans-serif;
 }
-p{
+#result{
+    position: absolute;
     margin: 5px;
     text-indent: 100px;
     font-weight: bold;
     font-family: Arial, sans-serif;
 }
+#output_result{
+    position: relative;
+    bottom: 22px;
+    left: 120px;
+}
 #reset{
+    position: absolute;
+    left: 45px;
+    top: 35px;
     margin-top: 20px;
     background-color:rgba(14, 14, 230, 0.603);
 }
@@ -76,3 +100,9 @@ p{
 .six_row{
     display: none;
 }
+
+ #hr_for_hist{
+    border-width: bold;
+    background-color: blue;
+    height: 2px;
+ }

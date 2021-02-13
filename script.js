@@ -3,6 +3,8 @@ var history_text = document.getElementById('out_text');
 var out_result = document.getElementById('output_result');
 var arr = new Array();
 var arr_for_result = new Array();
+var for_history = new Array();
+var all_history = new Array();
 
 function onButtonClick(e){
     var elem_by_id = document.getElementById(e).value;
@@ -43,15 +45,20 @@ function onButtonClick(e){
             history_text.innerHTML = arr_for_result.join('');
             inp_text.value='0';
             var result = eval(history_text.innerHTML);
+            result=parseFloat(result.toFixed(4));
         }
         else if(isNaN(arr_for_result[arr_for_result.length-1])){
             arr_for_result.pop();
             var a = arr_for_result.join('');
-            alert(a);
             var result = eval(a);
-            out_result.innerHTML = result;
+            result=parseFloat(result.toFixed(4));
         }
+        for_history.push(arr_for_result.join(''));
+        for_history.push('=');
+        for_history.push(result);
         out_result.innerHTML = result;
+        arr.length=0;
+        arr_for_result.length=0;
     }
 
     else if(elem_by_id == 'clearl'){
@@ -76,6 +83,9 @@ function onButtonClick(e){
         result = parseFloat(result.toFixed(4));
         history_text.innerHTML = elem_by_id + "(" + number + ")";
         out_result.innerHTML = result;
+        for_history.push(history_text.innerHTML);
+        for_history.push('=');
+        for_history.push(result);
         inp_text.value='0';
         arr.length=0;
     }
@@ -86,12 +96,28 @@ function onButtonClick(e){
         result = parseFloat(result.toFixed(4));
         history_text.innerHTML = history_text.style.content = '&radic;' + number ;
         out_result.innerHTML = result;
+        for_history.push(history_text.innerHTML);
+        for_history.push('=');
+        for_history.push(result);
+        alert(for_history.join(''));
         inp_text.value='0';
         arr.length=0;
     }
-
+    else if(elem_by_id == 'C'){
+        all_history.push(for_history.join(''));
+        all_history.push("<hr id='hr_for_hist'/>")
+        for_history.length=0;
+        history_text.innerHTML=all_history.join('');
+        inp_text.value='0';
+        out_result.innerHTML="";
+    }
+    else if(elem_by_id == 'reset'){
+        all_history.length=0;
+        inp_text.value='0';
+        out_result.innerHTML="";
+        history_text.innerHTML="";
+    }
 }
-
 
 document.getElementById("more").onclick = function() {
     var six_r=document.getElementsByClassName("six_row");

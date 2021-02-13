@@ -11,8 +11,8 @@
             <input type="text" id="input_text" value="0">
             <div class="first_row">
                 <button id="more" value="more">More</button>
-                <button id="remin_after_dev" value="%">%</button>
-                <button id="clear" value="C">C</button>
+                <button id="persent" value="%" onclick="onButtonClick(this.id)">%</button>
+                <button id="clear" value="C" onclick="onButtonClick(this.id)">C</button>
                 <button id="clear_last_sumb" value="clearl" onclick="onButtonClick(this.id)">&larr;</button>
             </div>
             <div class="second_row">
@@ -48,9 +48,13 @@
         </div> 
         <div class="history">
             <h3>History</h3>
-            <textarea id="out_text" value=''></textarea>
-            <p>Result: <span id="output_result"></span></p>
-            <button id="reset">Reset</button>
+            <div id="for_out_text">
+                <p id="out_text"></p>
+            </div>
+            <div id="for_result">
+            <p id="result">Result: <span id="output_result"></span></p>
+            <button id="reset" value="reset" onclick="onButtonClick(this.id)">Reset</button>
+            </div>
         </div>
 
     <script src="script.js"></script>     

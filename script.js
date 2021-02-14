@@ -30,27 +30,25 @@ function onButtonClick(e){
             }        
         }
         else{
+            if(arr.length != 0){
             arr_for_result.push(arr.join(''));
             arr_for_result.push(elem_by_id);
             history_text.innerHTML = arr_for_result.join('');
             arr.length=0;
-
             inp_text.value='0';
-        }    
+            }
+        }
+
     }
 
     else if(elem_by_id == '='){
         if(inp_text.value != '0'){
             if(arr.indexOf('%') != -1){
-            //alert(arr.join(''));
             arr_for_result.push(arr.join(''));
             history_text.innerHTML = arr_for_result.join('');
             var index_of_per = arr.indexOf('%');
-            //alert(arr.indexOf('%'));
             var elem1 = arr.slice(0,index_of_per).join('');
-            alert(elem1);
             var elem2 = arr.slice(index_of_per + 1).join('');
-            alert(elem2);
             var result = elem1/100*elem2;
             }
             else{
@@ -60,13 +58,6 @@ function onButtonClick(e){
                 var result = eval(history_text.innerHTML);
             }
         }
-        /*else if(arr.indexOf('%') != -1){
-            alert(arr.join(''));
-            var index_of_per = arr.indexOf('%');
-            var elem1 = arr.slice(0,index_of_per).join('');
-            var elem2 = arr.slice(index_of_per, arr[arr.length-1]).join('');
-            var result = elem1/100*elem2;
-        }*/
         else if(isNaN(arr_for_result[arr_for_result.length-1])){
             arr_for_result.pop();
             var a = arr_for_result.join('');
@@ -77,7 +68,9 @@ function onButtonClick(e){
         for_history.push('=');
         for_history.push(result);
         out_result.innerHTML = result;
+        inp_text.value=result;
         arr.length=0;
+        arr.push(result);
         arr_for_result.length=0;
     }
 
@@ -106,8 +99,9 @@ function onButtonClick(e){
         for_history.push(history_text.innerHTML);
         for_history.push('=');
         for_history.push(result);
-        inp_text.value='0';
+        inp_text.value=result;
         arr.length=0;
+        arr.push(result);
     }
 
     else if(elem_by_id == 'sqrt'){
@@ -119,9 +113,9 @@ function onButtonClick(e){
         for_history.push(history_text.innerHTML);
         for_history.push('=');
         for_history.push(result);
-        alert(for_history.join(''));
-        inp_text.value='0';
         arr.length=0;
+        inp_text.value=result;
+        arr.push(result);
     }
 
     else if(elem_by_id == '%'){
@@ -131,12 +125,15 @@ function onButtonClick(e){
     }
 
     else if(elem_by_id == 'C'){
-        all_history.push(for_history.join(''));
+        if(for_history.length !=0){
+        all_history.push(for_history.slice(for_history.length-3).join(''));
         all_history.push("<hr id='hr_for_hist'/>")
         for_history.length=0;
         history_text.innerHTML=all_history.join('');
         inp_text.value='0';
         out_result.innerHTML="";
+        arr.length=0;
+        }
     }
 
     else if(elem_by_id == 'reset'){

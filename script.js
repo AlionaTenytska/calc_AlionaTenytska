@@ -27,15 +27,17 @@ function onButtonClick(e){
                 var k = arr.join('') + elem_by_id;
                 arr_for_result.push(k);
                 history_text.innerHTML = all_history.join('')+arr_for_result.join('');
+                out_result.innerHTML = eval(arr_for_result.slice(0,arr_for_result.length-1).join(''));
             }        
         }
         else{
             if(arr.length != 0){
-            arr_for_result.push(arr.join(''));
-            arr_for_result.push(elem_by_id);
-            history_text.innerHTML =all_history.join('')+ arr_for_result.join('');
-            arr.length=0;
-            inp_text.value='0';
+                arr_for_result.push(arr.join(''));
+                arr_for_result.push(elem_by_id);
+                history_text.innerHTML =all_history.join('')+ arr_for_result.join('');
+                arr.length=0;
+                inp_text.value=0;
+                out_result.innerHTML = eval(arr_for_result.slice(0,arr_for_result.length-1).join(''));
             }
         }
 
@@ -55,7 +57,7 @@ function onButtonClick(e){
             else{
                 arr_for_result.push(arr.join(''));
                 history_text.innerHTML = all_history.join('') + arr_for_result.join('');
-                inp_text.value='0';
+                inp_text.value= 0;
                 var result = eval(arr_for_result.join(''));
             }
         }
@@ -147,7 +149,7 @@ function onButtonClick(e){
 
     else if(elem_by_id == 'reset'){
         all_history.length=0;
-        inp_text.value='0';
+        inp_text.value=0;
         out_result.innerHTML="";
         history_text.innerHTML="";
         arr.length=0;

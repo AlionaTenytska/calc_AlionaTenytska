@@ -44,18 +44,19 @@ function onButtonClick(e){
     else if(elem_by_id == '='){
         if(inp_text.value != '0'){
             if(arr.indexOf('%') != -1){
-            arr_for_result.push(arr.join(''));
-            history_text.innerHTML = all_history.join('') + arr_for_result.join('');
-            var index_of_per = arr.indexOf('%');
-            var elem1 = arr.slice(0,index_of_per).join('');
-            var elem2 = arr.slice(index_of_per + 1).join('');
-            var result = elem1/100*elem2;
+                arr_for_result.push(arr.join(''));
+                history_text.innerHTML = all_history.join('') + arr_for_result.join('');
+                var index_of_per = arr.indexOf('%');
+                var elem1 = arr.slice(0,index_of_per).join('');
+                var elem2 = arr.slice(index_of_per + 1).join('');
+                var result = elem1/100*elem2;
+                result=parseFloat(result.toFixed(4));
             }
             else{
                 arr_for_result.push(arr.join(''));
                 history_text.innerHTML = all_history.join('') + arr_for_result.join('');
                 inp_text.value='0';
-                var result = eval(history_text.innerHTML);
+                var result = eval(arr_for_result.join(''));
             }
         }
         else if(isNaN(arr_for_result[arr_for_result.length-1])){
@@ -63,7 +64,7 @@ function onButtonClick(e){
             var a = arr_for_result.join('');
             var result = eval(a);
         }
-        result=parseFloat(result.toFixed(4));
+        //result=parseFloat(result.toFixed(4));
         for_history.push(arr_for_result.join(''));
         for_history.push('=');
         for_history.push(result);
@@ -77,8 +78,8 @@ function onButtonClick(e){
     else if(elem_by_id == 'clearl'){
         if(inp_text.value != '0'){
             inp_text.value = inp_text.value.slice(0, - 1 );
-            arr.pop();
         }
+        arr.pop();
     }
 
     else if(elem_by_id == 'tan' || elem_by_id == 'sin' || elem_by_id == 'cos'){
@@ -113,7 +114,6 @@ function onButtonClick(e){
         result = parseFloat(result.toFixed(4));
         var k = history_text.style.content = '&radic;' + number;
         arr_for_result.push(k);
-        alert(arr_for_result.join());
         history_text.innerHTML = all_history.join('') + k ;
         out_result.innerHTML = result;
         for_history.push(arr_for_result.join(''));
@@ -126,20 +126,22 @@ function onButtonClick(e){
     }
 
     else if(elem_by_id == '%'){
-        arr.push(elem_by_id);
-        history_text.innerHTML = all_history.join('') + arr.join('');
-        inp_text.value=0;
+        if(arr.indexOf('%') == -1){
+            arr.push(elem_by_id);
+            history_text.innerHTML = all_history.join('') + arr.join('');
+            inp_text.value=0;
+        }
     }
 
     else if(elem_by_id == 'C'){
         if(for_history.length !=0){
-        all_history.push(for_history.slice(for_history.length-3).join(''));
-        all_history.push("<hr id='hr_for_hist'/>")
-        for_history.length=0;
-        history_text.innerHTML=all_history.join('');
-        inp_text.value='0';
-        out_result.innerHTML="";
-        arr.length=0;
+            all_history.push(for_history.slice(for_history.length-3).join(''));
+            all_history.push("<hr id='hr_for_hist'/>")
+            for_history.length=0;
+            history_text.innerHTML=all_history.join('');
+            inp_text.value='0';
+            out_result.innerHTML="";
+            arr.length=0;
         }
     }
 
@@ -158,7 +160,7 @@ document.getElementById("more").onclick = function() {
     for (var i=0; i < six_r.length; i++){
         if(six_r[i].style.display == 'none'){
             six_r[i].style.display = 'block';
-                main_cl.style.height= '290px';
+            main_cl.style.height= '290px';
         }
         else{
             six_r[i].style.display = 'none';
